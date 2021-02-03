@@ -59,6 +59,8 @@ namespace VigenereDecoderMVVM
                 windowViewModel.SelectedViewModel = new DictionaryDecipherViewModel();
             if (parameter.ToString() == "BruteForceView")
                 windowViewModel.SelectedViewModel = new BruteForceViewModel();
+            if (parameter.ToString() == "FrequencyAnalysisView")
+                windowViewModel.SelectedViewModel = new FrequencyAnalysisViewModel();
         }
     }
 }
