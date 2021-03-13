@@ -11,7 +11,7 @@
             <StackPanel.BindingGroup>
                 <BindingGroup/>
             </StackPanel.BindingGroup>
-            <TextBlock Text="Frequency Analysis" 
+            <TextBlock Text="Dictionary" 
                        Margin="20, 10, 0, 0" 
                        FontSize="22" 
                        FontFamily="Segoe UI Semibold"
