@@ -89,6 +89,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\ChangeViewCommand.cs" />
+    <Compile Include="Models\Coset.cs" />
     <Compile Include="Models\DecipherProcessor.cs" />
     <Compile Include="Models\FileIO.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
