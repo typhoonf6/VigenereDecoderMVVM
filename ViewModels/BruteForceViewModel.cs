@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.IO;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Windows.Input;
 
 namespace VigenereDecoderMVVM
 {
@@ -46,12 +41,12 @@ namespace VigenereDecoderMVVM
                 IsRunning = true;
                 using (CancellationTokenSource = new System.Threading.CancellationTokenSource())
                 {
-                    foreach (var item in Items)
+                    foreach (DecipherItemViewModel item in Items)
                     {
                         try
                         {
                             var _output = await Task.Run(() =>
-                            DecipherProcessor.BruteForceDecipher
+                            BruteForceDecipher.Begin
                             (item, Dictionary, StartLength, EndLength, PassableWordCount,
                             MinimumWordLength, CancellationTokenSource.Token));
                         }

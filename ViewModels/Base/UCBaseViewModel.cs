@@ -54,7 +54,7 @@ namespace VigenereDecoderMVVM
         /// <summary>
         /// List of all items to be displayed on the dictionary view model
         /// </summary>
-        public ObservableCollection<DecipherItemViewModel> Items { get; set; }
+        public ObservableCollection<BaseViewModel> Items { get; set; }
 
         /// <summary>
         /// Text displayed on the button that begins the decipher process
@@ -117,7 +117,7 @@ namespace VigenereDecoderMVVM
         /// Opens a file browser dialog to add the text files containing the
         /// text to be deciphered
         /// </summary>
-        public void FileBrowser()
+        public virtual void FileBrowser()
         {
             var fd = new OpenFileDialog()
             {
@@ -130,7 +130,7 @@ namespace VigenereDecoderMVVM
             if (fd.ShowDialog() == DialogResult.OK)
             {
                 Paths = fd.FileNames;
-                Items = new ObservableCollection<DecipherItemViewModel>();
+                Items = new ObservableCollection<BaseViewModel>();
                 foreach (var file in Paths)
                 {
                     Items.Add(new DecipherItemViewModel(FileIO.GetDecipherString(file), Path.GetFileName(file)));

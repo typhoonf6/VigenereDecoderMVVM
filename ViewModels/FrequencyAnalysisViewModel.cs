@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace VigenereDecoderMVVM
 {
@@ -9,6 +11,12 @@ namespace VigenereDecoderMVVM
     /// </summary>
     class FrequencyAnalysisViewModel : UCBaseViewModel
     {
+        /// <summary>
+        /// The maximum key length to assess. Can be quite high (max tested is 15) without affecting
+        /// the speed of decryption
+        /// </summary>
+        public int MaxKeyLength { get; set; } = 15;
+
         /// <summary>
         /// Default Constructor
         /// </summary>
@@ -28,12 +36,12 @@ namespace VigenereDecoderMVVM
                 IsRunning = true;
                 using (CancellationTokenSource = new System.Threading.CancellationTokenSource())
                 {
-                    foreach (var item in Items)
+                    foreach (FrequencyDecipherItemViewModel item in Items)
                     {
                         try
                         {
                             var _output = await Task.Run(() =>
-                            DecipherProcessor.FindKeyUsingFrequency(item, 15, Dictionary, 6, 
+                            FrequencyAnalysisDecipher.Begin(item, MaxKeyLength, Dictionary, 6, 
                             5, CancellationTokenSource.Token));
                         }
 #pragma warning disable CS0168 // Variable is declared but never used
@@ -46,6 +54,31 @@ namespace VigenereDecoderMVVM
                     }
                 }
                 IsRunning = false;
+            }
+        }
+
+        /// <summary>
+        /// Opens a file browser dialog to add the text files containing the
+        /// text to be deciphered
+        /// </summary>
+        public override void FileBrowser()
+        {
+            var fd = new OpenFileDialog()
+            {
+                Filter = "Text files (*.txt)|*.txt",
+                Title = "Open text file"
+            };
+
+            fd.Multiselect = true;
+
+            if (fd.ShowDialog() == DialogResult.OK)
+            {
+                Paths = fd.FileNames;
+                Items = new ObservableCollection<BaseViewModel>();
+                foreach (var file in Paths)
+                {
+                    Items.Add(new FrequencyDecipherItemViewModel(FileIO.GetDecipherString(file), Path.GetFileName(file)));
+                }
             }
         }
     }

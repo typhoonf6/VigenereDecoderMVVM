@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.IO;
 
 namespace VigenereDecoderMVVM
@@ -16,7 +15,7 @@ namespace VigenereDecoderMVVM
         /// Full path to the word file
         /// </summary>
         private static string WordFilePath =
-             System.IO.Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "words.txt");
+             Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "words.txt");
 
         /// <summary>
         /// Reads in the word dictionary from a text file

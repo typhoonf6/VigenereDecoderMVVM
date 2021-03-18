@@ -89,14 +89,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Commands\ChangeViewCommand.cs" />
-    <Compile Include="Models\Coset.cs" />
-    <Compile Include="Models\DecipherProcessor.cs" />
+    <Compile Include="Models\Decryption\Coset.cs" />
+    <Compile Include="Models\Decryption\BruteForceDecipher.cs" />
+    <Compile Include="Models\Decryption\DecipherHelper.cs" />
+    <Compile Include="Models\Decryption\DictionaryDecipher.cs" />
+    <Compile Include="Models\Decryption\FrequencyAnalysisDecipher.cs" />
     <Compile Include="Models\FileIO.cs" />
     <Compile Include="ViewModels\Base\BaseViewModel.cs" />
     <Compile Include="ViewModels\BruteForceViewModel.cs" />
     <Compile Include="ViewModels\DecipherItemViewModel.cs" />
     <Compile Include="ViewModels\DictionaryDecipherViewModel.cs" />
     <Compile Include="ViewModels\FrequencyAnalysisViewModel.cs" />
+    <Compile Include="ViewModels\FrequencyDecipherItemViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="ViewModels\Base\UCBaseViewModel.cs" />
