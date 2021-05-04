@@ -149,7 +149,7 @@ namespace VigenereDecoderMVVM
         /// <returns></returns>
         private static void FillX2Dict(FrequencyDecipherItemViewModel decipherItem)
         {
-            foreach (var ckvp in decipherItem.Cosets.Reverse().Take(3))
+            foreach (var ckvp in decipherItem.Cosets.Reverse().Take(5))
             {
                 foreach (var coset in ckvp.Value)
                 {
@@ -168,6 +168,7 @@ namespace VigenereDecoderMVVM
                             x2 += GetX2(ioc, EnglishIC[c1]);
                         }
                         while (tempList.ContainsKey(x2))
+                            // Increment x2 to avoid collisions in list
                             x2 += 0.00000000001;
                         tempList.Add(x2, c);
                     }

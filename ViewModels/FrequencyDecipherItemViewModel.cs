@@ -39,7 +39,7 @@ namespace VigenereDecoderMVVM
         public SortedDictionary<double, List<Coset>> Cosets { get; set; }
 
         /// <summary>
-        /// The top 3 estimated key lengths for the given Ciphered Text
+        /// The top estimated key lengths for the given Ciphered Text
         /// </summary>
         public List<int> EstimatedKeyLengths { get; set; }
 

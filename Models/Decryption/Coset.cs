@@ -15,7 +15,7 @@ namespace VigenereDecoderMVVM
         public int CosetDistance { get; set; }
 
         /// <summary>
-        /// Dictionary containing the x2 values for each 
+        /// Sorted list containing the x2 values
         /// </summary>
         public SortedList<double, char> X2List { get; set; }
 

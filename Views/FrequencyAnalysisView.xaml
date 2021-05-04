@@ -20,7 +20,8 @@
                      Height="300" 
                      Width="700" 
                      Background="WhiteSmoke"
-                     ItemsSource="{Binding Items}">
+                     ItemsSource="{Binding Items}"
+                     ScrollViewer.CanContentScroll="False">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
